@@ -14,7 +14,7 @@
 object ProjectSetting {
 
     // Project Name
-    const val NAME_APP = "KickStart Library"
+    const val NAME_APP = "Spin Wheel"
 
     // ---------------------------------------------------------------------------------------------
 
@@ -35,13 +35,13 @@ object ProjectSetting {
 
     const val APP_DOMAIN = "com"
     const val APP_PLAY_CONSOLE = "frogobox"
-    const val APP_NAME_SPACE = "kickstartlibrary"
+    const val APP_NAME_SPACE = "appspinwheel"
 
     const val BASE_PACAKGE_NAME = "$APP_DOMAIN.$APP_PLAY_CONSOLE"
 
-    val NAME_APP_ID = NAME_APP.toLowerCase().replace(" ", "")
-    val NAME_APK = NAME_APP.toLowerCase().replace(" ", "-")
-    val NAME_DB = NAME_APP.toLowerCase().replace(" ", "_")
+    val NAME_APP_ID = NAME_APP.lowercase().replace(" ", "")
+    val NAME_APK = NAME_APP.lowercase().replace(" ", "-")
+    val NAME_DB = NAME_APP.lowercase().replace(" ", "_")
 
     val PROJECT_APP_ID = "$BASE_PACAKGE_NAME.$NAME_APP_ID"
     val PROJECT_APP_NAME_SPACE = "$BASE_PACAKGE_NAME.$APP_NAME_SPACE"

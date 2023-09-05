@@ -1,9 +1,9 @@
-package com.frogobox.kickstartlibrary
+package com.frogobox.appspinwheel
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.frogobox.kickstartlibrary.databinding.ActivityMainBinding
+import com.frogobox.appspinwheel.databinding.ActivityMainBinding
 import com.frogobox.spinwheel.WheelItem
 
 /**
