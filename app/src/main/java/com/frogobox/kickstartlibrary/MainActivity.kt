@@ -1,15 +1,10 @@
 package com.frogobox.kickstartlibrary
 
-import android.graphics.BitmapFactory
-import android.graphics.Color
 import android.os.Bundle
 import android.widget.Toast
-
 import androidx.appcompat.app.AppCompatActivity
-import com.frogobox.spinwheel.WheelItem
-
 import com.frogobox.kickstartlibrary.databinding.ActivityMainBinding
-import com.frogobox.spinwheel.OnLuckyWheelReachTheTarget
+import com.frogobox.spinwheel.WheelItem
 
 /**
  * Created by Amir on 08/28/23
@@ -44,12 +39,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun generateWheelItems(): MutableList<WheelItem> {
         return mutableListOf<WheelItem>().apply {
-            add(WheelItem(this@MainActivity, R.color.wheel_1, R.drawable.chat, "0", "Chat"))
-            add(WheelItem(this@MainActivity, R.color.wheel_2, R.drawable.coupon, "1", "Coupon"))
-            add(WheelItem(this@MainActivity, R.color.wheel_3, R.drawable.ice_cream, "2", "Ice Cream"))
-            add(WheelItem(this@MainActivity, R.color.wheel_4, R.drawable.lemonade, "3", "Lemonade"))
-            add(WheelItem(this@MainActivity, R.color.wheel_5, R.drawable.orange, "4", "Orange"))
-            add(WheelItem(this@MainActivity, R.color.wheel_6, R.drawable.shop, "5", "Shop"))
+            add(WheelItem(this@MainActivity, R.color.wheel_1, R.drawable.chat, "0", ))
+            add(WheelItem(this@MainActivity, R.color.wheel_2, R.drawable.coupon, "1", ))
+            add(WheelItem(this@MainActivity, R.color.wheel_3, R.drawable.ice_cream, "2", ))
+            add(WheelItem(this@MainActivity, R.color.wheel_4, R.drawable.lemonade, "3", ))
+            add(WheelItem(this@MainActivity, R.color.wheel_5, R.drawable.orange, "4", ))
+            add(WheelItem(this@MainActivity, R.color.wheel_6, R.drawable.shop, "5", ))
         }
     }
 }

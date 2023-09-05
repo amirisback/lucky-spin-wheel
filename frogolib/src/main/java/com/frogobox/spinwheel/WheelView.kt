@@ -192,7 +192,12 @@ class WheelView : View {
                 override fun onAnimationStart(animation: Animator) {}
                 override fun onAnimationEnd(animation: Animator) {
                     if (mOnLuckyWheelReachTheTarget != null) {
-                        mOnLuckyWheelReachTheTarget!!.onReachTarget(wheelItems[target-1].value)
+                        if (wheelItems[target-1].value.isNullOrEmpty()) {
+                            val message = "Please Define Value On Wheel Item"
+                            mOnLuckyWheelReachTheTarget!!.onReachTarget(message)
+                        } else {
+                            mOnLuckyWheelReachTheTarget!!.onReachTarget(wheelItems[target-1].value)
+                        }
                     }
                     if (onRotationListener != null) {
                         onRotationListener!!.onFinishRotation()
