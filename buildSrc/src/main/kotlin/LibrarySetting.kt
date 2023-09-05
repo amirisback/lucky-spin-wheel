@@ -16,9 +16,9 @@ import ProjectSetting.BASE_PACAKGE_NAME
 object LibrarySetting {
 
     const val GITHUB_ACCOUNT = "frogobox"
-    const val GITHUB_REPOSITORY = "kick-start-library"
+    const val GITHUB_REPOSITORY = "lucky-spin-wheel"
 
-    const val LIB_NAME = "frogolib"
+    const val LIB_NAME = "spinwheel"
 
     const val ARTIFACT_ID = GITHUB_REPOSITORY
     const val GROUP_ID = "com.github.$GITHUB_ACCOUNT"

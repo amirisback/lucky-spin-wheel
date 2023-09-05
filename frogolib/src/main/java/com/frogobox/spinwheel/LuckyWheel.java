@@ -1,4 +1,4 @@
-package com.frogobox.frogolib;
+package com.frogobox.spinwheel;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by mohamed on 22/04/17.
@@ -50,7 +51,7 @@ public class LuckyWheel extends FrameLayout implements View.OnTouchListener, OnR
      *
      * @param wheelItems Wheel items
      */
-    public void addWheelItems(List <WheelItem> wheelItems) {
+    public void addWheelItems(List<WheelItem> wheelItems) {
         wheelView.addWheelItems(wheelItems);
     }
 
@@ -59,8 +60,8 @@ public class LuckyWheel extends FrameLayout implements View.OnTouchListener, OnR
         try {
             int backgroundColor = typedArray.getColor(R.styleable.LuckyWheel_background_color, Color.GREEN);
             int arrowImage = typedArray.getResourceId(R.styleable.LuckyWheel_arrow_image, R.drawable.arrow);
-            int imagePadding = typedArray.getDimensionPixelSize(R.styleable.LuckyWheel_image_padding , 0);
-            wheelView.setWheelBackgoundWheel(backgroundColor);
+            int imagePadding = typedArray.getDimensionPixelSize(R.styleable.LuckyWheel_image_padding, 0);
+            wheelView.setWheelBackgroundWheel(backgroundColor);
             wheelView.setItemsImagePadding(imagePadding);
             arrow.setImageResource(arrowImage);
         } catch (Exception e) {
@@ -95,13 +96,21 @@ public class LuckyWheel extends FrameLayout implements View.OnTouchListener, OnR
         wheelView.resetRotationLocationToZeroAngle(number);
     }
 
+    public void rotateWheel() {
+        Random random = new Random();
+        int min = 0;
+        int max = wheelView.getWheelItems().size();
+        int number = random.nextInt(max - min) + min;
+        rotateWheelTo(number);
+    }
+
     final int SWIPE_DISTANCE_THRESHOLD = 100;
     float x1, x2, y1, y2, dx, dy;
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
 
-        if ( target < 0 || isRotate ) {
+        if (target < 0 || isRotate) {
             return false;
         }
 
@@ -115,11 +124,11 @@ public class LuckyWheel extends FrameLayout implements View.OnTouchListener, OnR
                 y2 = event.getY();
                 dx = x2 - x1;
                 dy = y2 - y1;
-                if ( Math.abs(dx) > Math.abs(dy) ) {
-                    if ( dx < 0 && Math.abs(dx) > SWIPE_DISTANCE_THRESHOLD )
+                if (Math.abs(dx) > Math.abs(dy)) {
+                    if (dx < 0 && Math.abs(dx) > SWIPE_DISTANCE_THRESHOLD)
                         rotateWheelTo(target);
                 } else {
-                    if ( dy > 0 && Math.abs(dy) > SWIPE_DISTANCE_THRESHOLD )
+                    if (dy > 0 && Math.abs(dy) > SWIPE_DISTANCE_THRESHOLD)
                         rotateWheelTo(target);
                 }
                 break;

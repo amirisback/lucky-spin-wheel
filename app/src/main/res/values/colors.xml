@@ -7,4 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="wheel_1">#fc6c6c</color>
+    <color name="wheel_2">#00E6FF</color>
+    <color name="wheel_3">#F00E6F</color>
+    <color name="wheel_4">#00E6FF</color>
+    <color name="wheel_5">#fc6c6c</color>
+    <color name="wheel_6">#00E6FF</color>
 </resources>

@@ -6,10 +6,10 @@ import android.os.Bundle
 import android.widget.Toast
 
 import androidx.appcompat.app.AppCompatActivity
-import com.frogobox.frogolib.OnLuckyWheelReachTheTarget
-import com.frogobox.frogolib.WheelItem
+import com.frogobox.spinwheel.WheelItem
 
 import com.frogobox.kickstartlibrary.databinding.ActivityMainBinding
+import com.frogobox.spinwheel.OnLuckyWheelReachTheTarget
 
 /**
  * Created by Amir on 08/28/23
@@ -24,7 +24,7 @@ import com.frogobox.kickstartlibrary.databinding.ActivityMainBinding
  */
 class MainActivity : AppCompatActivity() {
 
-    private val binding : ActivityMainBinding by lazy {
+    private val binding: ActivityMainBinding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
@@ -33,26 +33,23 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.lwv.addWheelItems(generateWheelItems())
-        binding.lwv.setTarget(3)
-        binding.lwv.setLuckyWheelReachTheTarget(object: OnLuckyWheelReachTheTarget {
-            override fun onReachTarget() {
-                Toast.makeText(this@MainActivity, "Target Reached", Toast.LENGTH_LONG).show()
-            }
-        })
+        binding.lwv.setLuckyWheelReachTheTarget {
+            Toast.makeText(this@MainActivity, it, Toast.LENGTH_LONG).show()
+        }
 
         binding.start.setOnClickListener {
-            binding.lwv.rotateWheelTo(0)
+            binding.lwv.rotateWheel()
         }
     }
 
-    private fun generateWheelItems() : MutableList<WheelItem> {
+    private fun generateWheelItems(): MutableList<WheelItem> {
         return mutableListOf<WheelItem>().apply {
-            add(WheelItem(Color.parseColor("#fc6c6c"), BitmapFactory.decodeResource(resources, R.drawable.chat), "100 $"))
-            add(WheelItem(Color.parseColor("#00E6FF"), BitmapFactory.decodeResource(resources, R.drawable.coupon), "0 $"))
-            add(WheelItem(Color.parseColor("#F00E6F"), BitmapFactory.decodeResource(resources, R.drawable.ice_cream), "30 $"))
-            add(WheelItem(Color.parseColor("#00E6FF"), BitmapFactory.decodeResource(resources, R.drawable.lemonade), "6000 $"))
-            add(WheelItem(Color.parseColor("#fc6c6c"), BitmapFactory.decodeResource(resources, R.drawable.orange), "9 $"))
-            add(WheelItem(Color.parseColor("#00E6FF"), BitmapFactory.decodeResource(resources, R.drawable.shop), "20 $"))
+            add(WheelItem(this@MainActivity, R.color.wheel_1, R.drawable.chat, "0", "Chat"))
+            add(WheelItem(this@MainActivity, R.color.wheel_2, R.drawable.coupon, "1", "Coupon"))
+            add(WheelItem(this@MainActivity, R.color.wheel_3, R.drawable.ice_cream, "2", "Ice Cream"))
+            add(WheelItem(this@MainActivity, R.color.wheel_4, R.drawable.lemonade, "3", "Lemonade"))
+            add(WheelItem(this@MainActivity, R.color.wheel_5, R.drawable.orange, "4", "Orange"))
+            add(WheelItem(this@MainActivity, R.color.wheel_6, R.drawable.shop, "5", "Shop"))
         }
     }
 }
